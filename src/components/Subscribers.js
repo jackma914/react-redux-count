@@ -5,7 +5,7 @@ import { addSubscriber } from "../redux/";
 function Subscribers({ count, addSubscriber }) {
   return (
     <div className="items">
-      <p>구독자 수 : {count}</p>
+      <h3>구독자 수 : {count}</h3>
       <button
         onClick={() => {
           addSubscriber();
