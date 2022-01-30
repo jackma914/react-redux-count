@@ -1,3 +1,5 @@
+
+
 <template>
   <!-- vue 반복되는 html에 반복문을 사용할수 있습니다. <태그 v-for="작명 in 몇회" :key="작명"
 Home으로만 3개가 아닌 다른 작명을 넣고싶을수 있습니다.
@@ -31,7 +33,7 @@ key는
 
   <div>     
     <img src="./assets/logo.png" alt="" />
-    <h4 @click="openMotal =true">{{ products[0] }}</h4>
+    <h4 @click="openMotal =true">{{ 원룸들[0].title }}</h4>
     <p>50만원</p>
     <!-- 이벤트 핸들러로 버튼을 누르면 신고수가 +1 증가하는 버튼을 구현하겠습니다
     먼저 v-on 혹은 @를 사용합니다.
@@ -58,10 +60,15 @@ key는
 </template>
 
 <script>
+
+import oneRoomData from "./data"
+
+
 export default {
   name: "App",
   data() {
     return {
+      원룸들:oneRoomData,
       openMotal: false,
       신고수: [0, 0, 0],
       menu: ["home", "shop", "about"],
