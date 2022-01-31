@@ -7,6 +7,7 @@ const memos = [];
 
 app.use(bodyParser.json());
 
+//데이터 추가
 app.get("/api/memos", (req, res) => {
   res.send(memos);
 });

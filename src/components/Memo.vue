@@ -19,6 +19,7 @@ export default {
       data: [],
     });
 
+    //데이터 추가
     const add = () => {
       const content = prompt("내용을 입력해주세요/");
 
@@ -28,6 +29,11 @@ export default {
       });
     };
 
+    axios.get("/api/memos").then((res) => {
+      state.data = res.data;
+    });
+
+    //데이터 수정
     const edit = (idx) => {
       const content = prompt("내용을 입력해주세요", state.data[idx]);
       console.log(content);
@@ -35,10 +41,6 @@ export default {
         state.data = res.data;
       });
     };
-
-    axios.get("/api/memos").then((res) => {
-      state.data = res.data;
-    });
 
     return { state, add, edit };
   },
