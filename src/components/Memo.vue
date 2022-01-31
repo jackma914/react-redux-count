@@ -4,13 +4,15 @@
       <button class="btn btn-primary" @click="add()">+ 추가</button>
     </div>
     <ul>
-      <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
+      <li v-for="(d, i) in state.data" :key="i" @click="edit(i)">{{ d }}</li>
     </ul>
   </div>
 </template>
 
 <script>
 import { reactive } from "@vue/reactivity";
+import axios from "axios";
+
 export default {
   setup() {
     const state = reactive({
@@ -18,10 +20,27 @@ export default {
     });
 
     const add = () => {
-      state.data.push("추가된 메모 내용");
+      const content = prompt("내용을 입력해주세요/");
+
+      // state.data.push("추가된 메모 내용");
+      axios.post("/api/memos", { content }).then((res) => {
+        state.data = res.data;
+      });
     };
 
-    return { state, add };
+    const edit = (idx) => {
+      const content = prompt("내용을 입력해주세요", state.data[idx]);
+      console.log(content);
+      axios.put("/api/memos/" + idx, { content }).then((res) => {
+        state.data = res.data;
+      });
+    };
+
+    axios.get("/api/memos").then((res) => {
+      state.data = res.data;
+    });
+
+    return { state, add, edit };
   },
 };
 </script>
@@ -40,7 +59,7 @@ export default {
 
     li {
       padding: 15px 10px;
-      margin: 5px;
+      margin: 10px 0;
       border: 1px solid #eee;
     }
   }
