@@ -4,7 +4,9 @@
       <button class="btn btn-primary" @click="add()">+ 추가</button>
     </div>
     <ul>
-      <li v-for="(d, i) in state.data" :key="i" @click="edit(i)">{{ d }}</li>
+      <li v-for="(d, i) in state.data" :key="i" @click="edit(i)">
+        {{ d.content }}
+      </li>
     </ul>
   </div>
 </template>
@@ -23,7 +25,7 @@ export default {
     const add = () => {
       const content = prompt("내용을 입력해주세요/");
 
-      // state.data.push("추가된 메모 내용");
+      // 데이터를 post 방식으로 모달 대신 prompt를 이용해서 데이터 추가
       axios.post("/api/memos", { content }).then((res) => {
         state.data = res.data;
       });
@@ -35,9 +37,10 @@ export default {
 
     //데이터 수정
     const edit = (idx) => {
+      console.log(idx);
       const content = prompt("내용을 입력해주세요", state.data[idx]);
-      console.log(content);
       axios.put("/api/memos/" + idx, { content }).then((res) => {
+        //state.data를 받아온 res데이터로 바꿔줍니다.
         state.data = res.data;
       });
     };

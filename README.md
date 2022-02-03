@@ -34,3 +34,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     <img src="https://img.shields.io/badge/styled components-v5.2.1-pink?logo=react">
 
 </p>
+
+https://www.youtube.com/watch?v=ADxbGlwhl_s&t=4131s
