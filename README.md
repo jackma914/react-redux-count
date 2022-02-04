@@ -1,32 +1,28 @@
 # vue
 
 ## Project setup
-
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
-
 ```
 yarn serve
 ```
 
 ### Compiles and minifies for production
-
 ```
 yarn build
 ```
 
 ### Lints and fixes files
-
 ```
 yarn lint
 ```
 
 ### Customize configuration
-
 See [Configuration Reference](https://cli.vuejs.org/config/).
+<<<<<<< HEAD
 
 <p align='center'>
     <img src="https://img.shields.io/badge/Vue.js-v4.0.3-blue?logo=vue.js"/>
@@ -36,3 +32,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 </p>
 
 https://www.youtube.com/watch?v=ADxbGlwhl_s&t=4131s
+=======
+>>>>>>> parent of 91cf709 (22-01-31)
