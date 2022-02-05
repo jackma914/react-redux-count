@@ -4,17 +4,19 @@
       <button class="btn btn-primary" @click="add()">+ 추가</button>
     </div>
     <ul>
+<<<<<<< HEAD
       <li v-for="(d, i) in state.data" :key="i" @click="edit(i)">
         {{ d.content }}
       </li>
+=======
+      <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
+>>>>>>> parent of 16b7512 (22-01-31)
     </ul>
   </div>
 </template>
 
 <script>
 import { reactive } from "@vue/reactivity";
-import axios from "axios";
-
 export default {
   setup() {
     const state = reactive({
@@ -23,7 +25,14 @@ export default {
 
     //데이터 추가
     const add = () => {
+<<<<<<< HEAD
 
+=======
+      state.data.push("추가된 메모 내용");
+    };
+
+    return { state, add };
+>>>>>>> parent of 16b7512 (22-01-31)
   },
 }}
 </script>
@@ -42,7 +51,7 @@ export default {
 
     li {
       padding: 15px 10px;
-      margin: 10px 0;
+      margin: 5px;
       border: 1px solid #eee;
     }
   }
