@@ -7,9 +7,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <li v-for="(d, i) in state.data" :key="i" @click="edit(i)">
         {{ d.content }}
       </li>
+=======
+      <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
+>>>>>>> parent of 16b7512 (22-01-31)
 =======
       <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
 >>>>>>> parent of 16b7512 (22-01-31)
@@ -36,8 +40,11 @@ export default {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> parent of 16b7512 (22-01-31)
 =======
 >>>>>>> parent of 16b7512 (22-01-31)
 =======
@@ -48,6 +55,9 @@ export default {
     return { state, add };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 16b7512 (22-01-31)
+=======
 >>>>>>> parent of 16b7512 (22-01-31)
 =======
 >>>>>>> parent of 16b7512 (22-01-31)
