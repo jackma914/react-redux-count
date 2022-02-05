@@ -5,9 +5,13 @@
     </div>
     <ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <li v-for="(d, i) in state.data" :key="i" @click="edit(i)">
         {{ d.content }}
       </li>
+=======
+      <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
+>>>>>>> parent of 16b7512 (22-01-31)
 =======
       <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
 >>>>>>> parent of 16b7512 (22-01-31)
@@ -26,12 +30,18 @@ export default {
     //데이터 추가
     const add = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> parent of 16b7512 (22-01-31)
       state.data.push("추가된 메모 내용");
     };
 
     return { state, add };
+<<<<<<< HEAD
+>>>>>>> parent of 16b7512 (22-01-31)
+=======
 >>>>>>> parent of 16b7512 (22-01-31)
   },
 }}
