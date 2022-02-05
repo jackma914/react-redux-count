@@ -1,4 +1,5 @@
 const mariadb = require("mariadb");
+
 const pool = mariadb.createPool({
   host: "127.0.0.1",
   user: "root",
@@ -19,11 +20,13 @@ module.exports = {
               resolve(rows);
             })
             .catch((err) => {
-              console.log(err);
+              //handle error
               conn.end();
             });
         })
-        .catch((err) => {});
+        .catch((err) => {
+          //not connected
+        });
     });
   },
 };
