@@ -40,7 +40,6 @@ export default {
         "내용을 입력해주세요",
         state.data.find((d) => d.id === id).content
       );
-      console.log(content);
       axios.put("/api/memos/" + id, { content }).then((res) => {
         state.data = res.data;
       });
