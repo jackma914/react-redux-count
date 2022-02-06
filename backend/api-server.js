@@ -18,6 +18,7 @@ app.get("/api/memos", async (req, res) => {
 //서버와 연동후 데이터베이스에 데이터 추가
 //MySQL에서는 INSERT INTO 문을 사용하여 테이블에 새로운 레코드를 추가할 수 있습니다.
 app.post("/api/memos", async (req, res) => {
+  //
   await database.run(`INSERT INTO memos (content) VALUES(?)`, [
     req.body.content,
   ]);
@@ -37,4 +38,14 @@ app.put("/api/memos/:id", async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+});
+
+////////////////////////////////////////////////////////////////////////////
+//로그인
+
+app.get("/api/account", (req, res) => {
+  res.send({
+    mid: 3,
+    memberName: "홍길동",
+  });
 });
