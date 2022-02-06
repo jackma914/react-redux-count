@@ -3,6 +3,10 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const database = require("./database");
+const members = [
+  { id: 3, name: "도서관", loginId: "lib", loginPw: "africa" },
+  { id: 4, name: "갈동", loginId: "a", loginPw: "1" },
+];
 
 const memos = [];
 
@@ -44,8 +48,22 @@ app.listen(port, () => {
 //로그인
 
 app.get("/api/account", (req, res) => {
-  res.send({
-    mid: 3,
-    memberName: "홍길동",
-  });
+  res.send(401);
+});
+
+app.post("/api/account", (req, res) => {
+  console.log(req);
+  const loginId = req.body.loginId;
+  const loginPw = req.body.loginPw;
+
+  const member = members.find(
+    (m) => m.loginId === loginId && m.loginPw === loginPw
+  );
+
+  if (member) {
+    return res.send(member);
+  } else {
+    res.send(404);
+  }
+  console.log(loginId, loginPw);
 });

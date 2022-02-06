@@ -1,9 +1,9 @@
 <template>
   <div class="ground">
+    <Login />
     <Header />
     <Memo />
     <Footer />
-    <Login />
   </div>
 </template>
 
