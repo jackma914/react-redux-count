@@ -50,7 +50,7 @@ export default {
           state.account = res.data;
           console.log(res);
         })
-        .catch(alert("로그인에 실패했습니다."));
+        .catch(() => alert("로그인에 실패했습니다."));
     };
     return { state, submit };
   },

@@ -3,6 +3,10 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const database = require("./database");
+const cookieParser = require("cookie-parser");
+const jwt = require("jsonwebtoken");
+app.use(cookieParser());
+
 const members = [
   { id: 3, name: "도서관", loginId: "lib", loginPw: "africa" },
   { id: 4, name: "갈동", loginId: "a", loginPw: "1" },
@@ -48,7 +52,25 @@ app.listen(port, () => {
 //로그인
 
 app.get("/api/account", (req, res) => {
-  res.send(401);
+  // if (req.cookies && req.cookies.token) {
+  //   jwt.verify(req.cookies.token, "1323", (err, decoded) => {
+  //     if (err) {
+  //       return res.send(401);
+  //     } else {
+  //       res.send(decoded);
+  //     }
+  //   });
+  // } else {
+  //   res.send(401);
+  // }
+
+  console.log(req.cookies);
+  if (req.cookies && req.cookies.account) {
+    const member = JSON.parse(req.cookies.account);
+    if (member.id) {
+      return res.send(member);
+    }
+  }
 });
 
 app.post("/api/account", (req, res) => {
@@ -59,11 +81,23 @@ app.post("/api/account", (req, res) => {
   const member = members.find(
     (m) => m.loginId === loginId && m.loginPw === loginPw
   );
-
   if (member) {
-    return res.send(member);
+    const options = {
+      domain: "localhost",
+      path: "/",
+      httpOnly: true,
+    };
+
+    // const token = jwt.sign({ id: member.id, name: member.name }, "1323", {
+    //   expiresIn: "10h",
+    //   issuer: "africalib",
+    // });
+
+    // res.cookie("token", token, options);
+
+    res.cookie("account", JSON.stringify(member), options);
+    res.send(member);
   } else {
     res.send(404);
   }
-  console.log(loginId, loginPw);
 });
