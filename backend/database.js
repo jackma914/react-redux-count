@@ -9,18 +9,19 @@ const pool = mariadb.createPool({
 });
 
 module.exports = {
-  async run(query) {
+
+  async run(query, params) {
     return new Promise((resolve) => {
       pool
         .getConnection()
         .then((conn) => {
           conn
-            .query(query)
+            .query(query, params)
             .then((rows) => {
               resolve(rows);
+              conn.end();
             })
             .catch((err) => {
-              //handle error
               conn.end();
             });
         })

@@ -4,25 +4,20 @@
       <button class="btn btn-primary" @click="add()">+ 추가</button>
     </div>
     <ul>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       <li v-for="(d, i) in state.data" :key="i" @click="edit(i)">
         {{ d.content }}
       </li>
-=======
       <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
->>>>>>> parent of 16b7512 (22-01-31)
-=======
+
       <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
->>>>>>> parent of 16b7512 (22-01-31)
-=======
+
       <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
->>>>>>> parent of 16b7512 (22-01-31)
-=======
+
       <li v-for="(d, i) in state.data" :key="i">{{ d }}</li>
->>>>>>> parent of 16b7512 (22-01-31)
+
+      <li v-for="d in state.data" :key="d.id" @click="edit(d.id)">
+        {{ d.content }}
+      </li>
     </ul>
   </div>
 </template>
@@ -37,34 +32,32 @@ export default {
 
     //데이터 추가
     const add = () => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> parent of 16b7512 (22-01-31)
-=======
->>>>>>> parent of 16b7512 (22-01-31)
-=======
->>>>>>> parent of 16b7512 (22-01-31)
       state.data.push("추가된 메모 내용");
+      const content = prompt("내용을 입력해주세요/");
+
+      // state.data.push("추가된 메모 내용");
+      axios.post("/api/memos", { content }).then((res) => {
+        state.data = res.data;
+
+        if (!content) {
+          alert("내용을 입력해 주세요.");
+          return add();
+        }
+      });
     };
 
+    const edit = (id) => {
+      const content = prompt(
+        "내용을 입력해주세요",
+        state.data.find((d) => d.id === id).content
+      );
+      axios.put("/api/memos/" + id, { content }).then((res) => {
+        state.data = res.data;
+      });
+    };
     return { state, add };
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 16b7512 (22-01-31)
-=======
->>>>>>> parent of 16b7512 (22-01-31)
-=======
->>>>>>> parent of 16b7512 (22-01-31)
-=======
->>>>>>> parent of 16b7512 (22-01-31)
   },
-}}
+};
 </script>
 
 <style lang="scss" scoped>
