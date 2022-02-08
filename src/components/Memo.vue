@@ -24,6 +24,7 @@
 
 <script>
 import { reactive } from "@vue/reactivity";
+import axios from "axios";
 export default {
   setup() {
     const state = reactive({
@@ -55,7 +56,7 @@ export default {
         state.data = res.data;
       });
     };
-    return { state, add };
+    return { state, add, edit };
   },
 };
 </script>
