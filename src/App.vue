@@ -1,10 +1,11 @@
 <template>
-  <Ground />
+  <Login />
 </template>
 
 <script>
-import Ground from "./components/Ground.vue";
+// import Ground from "./components/Ground.vue";
+import Login from "./components/Login.vue";
 export default {
-  components: { Ground },
+  components: { Login },
 };
 </script>
