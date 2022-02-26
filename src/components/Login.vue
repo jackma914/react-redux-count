@@ -15,6 +15,7 @@
       </label>
       <hr />
       <button @click="submit()">로그인</button>
+      <button>회원가입</button>
     </div>
   </div>
 </template>
@@ -35,6 +36,7 @@ export default {
         loginPw: "",
       },
     });
+    console.log(state.form.loginId);
 
     const submit = () => {
       const args = {
@@ -47,11 +49,14 @@ export default {
         .then((res) => {
           state.account = res.data;
           alert("로그인에 성공했습니다.");
+          console.log(res);
         })
         .catch(() => {
           alert("로그인에 실패했습니다. 계정 정보를 확인해주세요.");
         });
     };
+
+    // const SignUp = () => {};
 
     const logout = () => {
       axios.delete("/api/account").then(() => {

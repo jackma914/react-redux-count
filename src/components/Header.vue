@@ -1,8 +1,15 @@
 <template>
-  <header>Memo App</header>
+  <header>
+    <Login />
+  </header>
 </template>
 
-/// scoped는 지금 탬플릿 안에서만 사용하겠다는 뜻입니다.
+<script>
+import Login from "./Login.vue";
+export default {
+  components: { Login },
+};
+</script>
 <style scoped>
 header {
   text-align: center;

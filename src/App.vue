@@ -1,11 +1,18 @@
 <template>
-  <Login />
+  <div id="app">
+    <Home />
+    <div id="content">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
-// import Ground from "./components/Ground.vue";
-import Login from "./components/Login.vue";
+// import Login from "./components/Login.vue";
+import Home from "./components/Home.vue";
 export default {
-  components: { Login },
+  components: { Home },
 };
 </script>
+
+<style></style>
